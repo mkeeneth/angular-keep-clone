@@ -1,0 +1,18 @@
+.add-note-container {
+  margin-top: 12px;
+}
+
+.add-note {
+  min-width: 400px;
+  padding: 5px;
+}
+
+.add-note input,
+.add-note textarea {
+  width: 370px;
+  margin: 8px;
+  padding: 8px;
+}
+.add-note textarea {
+  height: 150px;
+}

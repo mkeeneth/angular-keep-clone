@@ -1,0 +1,10 @@
+<div class="add-note-container" fxLayout="row" fxFlex.md="50" fxLayoutAlign="center center">
+  <mat-card class="mat-card">
+    <form class="add-note" [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+      <input type="text" formControlName="title" required placeholder="Title" /> <br />
+      <textarea type="text" formControlName="body" required placeholder="Take a note..."></textarea>
+      <br />
+      <button type="submit" [disabled]="!noteForm.valid">Submit</button>
+    </form>
+  </mat-card>
+</div>
