@@ -9,6 +9,8 @@ import { FormArray } from "@angular/forms";
   styleUrls: ["./add-note.component.css"]
 })
 export class AddNoteComponent implements OnInit {
+  show: boolean = false;
+
   noteForm = this.fb.group({
     title: ["", Validators.required],
     body: ["", Validators.required]

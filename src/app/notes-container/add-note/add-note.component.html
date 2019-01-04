@@ -1,10 +1,27 @@
-<div class="add-note-container" fxLayout="row" fxFlex.md="50" fxLayoutAlign="center center">
-  <mat-card class="mat-card">
-    <form class="add-note" [formGroup]="noteForm" (ngSubmit)="onSubmit()">
-      <input type="text" formControlName="title" required placeholder="Title" /> <br />
-      <textarea type="text" formControlName="body" required placeholder="Take a note..."></textarea>
-      <br />
-      <button type="submit" [disabled]="!noteForm.valid">Submit</button>
-    </form>
+<div class="add-note-container" fxLayout="row" fxFlex.md="50" fxLayoutAlign="left center">
+  <button *ngIf="!show" (click)="show = !show" mat-raised-button color="primary">
+    <fa name="plus"></fa> Add Note
+  </button>
+  <mat-card class="mat-card mat-elevation-z4" *ngIf="show">
+    <mat-card-content>
+      <div class="add-note-close">
+        <button mat-raised-button color="warn" (click)="show = !show">
+          <fa name="close"></fa>
+        </button>
+      </div>
+      <form class="add-note" [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+        <input type="text" formControlName="title" required placeholder="Title" /> <br />
+        <textarea
+          type="text"
+          formControlName="body"
+          required
+          placeholder="Take a note..."
+        ></textarea>
+        <br />
+        <button type="submit" [disabled]="!noteForm.valid" mat-raised-button color="primary">
+          <fa name="save"></fa> Save
+        </button>
+      </form>
+    </mat-card-content>
   </mat-card>
 </div>

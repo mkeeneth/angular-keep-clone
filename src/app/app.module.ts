@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatCardModule } from "@angular/material/card";
+import { MatButtonModule } from "@angular/material/button";
 
 import { FooterComponent } from "./footer/footer.component";
 import { HeaderComponent } from "./header/header.component";
@@ -40,6 +41,7 @@ import { ViewNotesComponent } from "./notes-container/view-notes/view-notes.comp
     AppRoutingModule,
     MatToolbarModule,
     MatCardModule,
+    MatButtonModule,
     FlexLayoutModule,
     AngularFontAwesomeModule
   ],
