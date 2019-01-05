@@ -1,11 +1,18 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
 
-import { NotesApiService } from './notes-api.service';
+import { NotesApiService } from "./notes-api.service";
+import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
 
-describe('NotesApiService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+describe("NotesApiService", () => {
+  let httpMock: HttpTestingController;
 
-  it('should be created', () => {
+  beforeEach(() =>
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule]
+    })
+  );
+
+  it("should be created", () => {
     const service: NotesApiService = TestBed.get(NotesApiService);
     expect(service).toBeTruthy();
   });
