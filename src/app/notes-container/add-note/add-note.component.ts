@@ -3,6 +3,10 @@ import { FormBuilder } from "@angular/forms";
 import { Validators } from "@angular/forms";
 import { FormArray } from "@angular/forms";
 
+import { Store, select } from "@ngrx/store";
+import { Observable } from "rxjs";
+import { AppState } from "./../../app.state";
+import * as NoteActions from "./../../actions/note.actions";
 @Component({
   selector: "app-add-note",
   templateUrl: "./add-note.component.html",
@@ -16,12 +20,19 @@ export class AddNoteComponent implements OnInit {
     body: ["", Validators.required]
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private store: Store<AppState>, private fb: FormBuilder) {}
 
   ngOnInit() {}
 
   onSubmit() {
-    // TODO: Use EventEmitter with form values
     console.warn(this.noteForm.value);
+    this.addNote(this.noteForm.value["title"], this.noteForm.value["body"]);
+  }
+
+  addNote(title, body) {
+    let randomId: number = Math.trunc(Math.random() * 10000000000);
+    this.store.dispatch(new NoteActions.AddNote({ id: randomId, title, body }));
+    this.show = false;
+    // TODO:: reset form
   }
 }

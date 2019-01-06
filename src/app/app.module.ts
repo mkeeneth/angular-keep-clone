@@ -5,7 +5,6 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
 import { HttpClientModule } from "@angular/common/http";
-import { NotesApiService } from "./notes-api.service";
 
 import { AngularFontAwesomeModule } from "angular-font-awesome";
 
@@ -23,6 +22,10 @@ import { HeaderComponent } from "./header/header.component";
 import { NotesContainerComponent } from "./notes-container/notes-container.component";
 import { AddNoteComponent } from "./notes-container/add-note/add-note.component";
 import { ViewNotesComponent } from "./notes-container/view-notes/view-notes.component";
+
+// state
+import { StoreModule } from "@ngrx/store";
+import { reducer } from "./reducers/note.reducer";
 
 @NgModule({
   declarations: [
@@ -43,9 +46,10 @@ import { ViewNotesComponent } from "./notes-container/view-notes/view-notes.comp
     MatCardModule,
     MatButtonModule,
     FlexLayoutModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    StoreModule.forRoot({ notes: reducer })
   ],
-  providers: [NotesApiService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

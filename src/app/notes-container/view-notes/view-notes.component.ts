@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { NotesApiService } from "../../notes-api.service";
-import { Note } from "../../note.model";
+import { Note } from "../../models/note.model";
+
+import { Store, select } from "@ngrx/store";
+import { Observable } from "rxjs";
+import { AppState } from "./../../app.state";
 
 @Component({
   selector: "app-view-notes",
@@ -8,14 +11,14 @@ import { Note } from "../../note.model";
   styleUrls: ["./view-notes.component.css"]
 })
 export class ViewNotesComponent implements OnInit {
-  notes: Note[] = [];
+  notes$: Observable<Note[]>;
 
-  constructor(private notesapi: NotesApiService) {}
-
-  ngOnInit() {
-    this.notesapi.initNotes().subscribe(data => {
-      console.log(data);
-      this.notes = data as Note[];
-    });
+  // constructor(private store: Store<{ count: number }>) {
+  // constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>) {
+    this.notes$ = store.pipe(select("notes"));
+    console.log(this.notes$);
   }
+
+  ngOnInit() {}
 }
