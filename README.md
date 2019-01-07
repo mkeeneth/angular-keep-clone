@@ -1,6 +1,6 @@
 # AngularKeepClone
 
-A simple Google Keep clone. Utilizing Angualr 7, NgRx, flex-layout, and material design.
+A simple Google Keep clone. Utilizing Angular 7, NgRx, flex-layout, and material design.
 
 ## Development server
 
