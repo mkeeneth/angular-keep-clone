@@ -1,6 +1,6 @@
 # AngularKeepClone
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+A simple Google Keep clone. Utilizing Angualr 7, NgRx, flex-layout, and material design.
 
 ## Development server
 
