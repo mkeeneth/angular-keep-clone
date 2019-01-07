@@ -9,6 +9,8 @@ export function reducer(state: Note[] = TestNoteData, action: NoteActions.Action
   switch (action.type) {
     case NoteActions.ADD_NOTE:
       return [action.payload, ...state];
+    case NoteActions.REMOVE_NOTE:
+      return state.filter(x => x.id !== action.payload);
     default:
       return state;
   }

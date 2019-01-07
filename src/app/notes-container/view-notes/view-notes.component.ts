@@ -5,16 +5,25 @@ import { Store, select } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { AppState } from "./../../app.state";
 
+import { trigger, state, style, animate, transition } from "@angular/animations";
+
 @Component({
   selector: "app-view-notes",
   templateUrl: "./view-notes.component.html",
-  styleUrls: ["./view-notes.component.css"]
+  styleUrls: ["./view-notes.component.css"],
+  animations: [
+    trigger("slideInOut", [
+      transition(":enter", [
+        style({ transform: "translateY(-100%)" }),
+        animate("300ms ease-in", style({ transform: "translateY(0%)" }))
+      ]),
+      transition(":leave", [animate("200ms ease-in", style({ transform: "translateY(-100%)" }))])
+    ])
+  ]
 })
 export class ViewNotesComponent implements OnInit {
   notes$: Observable<Note[]>;
 
-  // constructor(private store: Store<{ count: number }>) {
-  // constructor(private store: Store<AppState>) {
   constructor(private store: Store<AppState>) {
     this.notes$ = store.pipe(select("notes"));
     console.log(this.notes$);

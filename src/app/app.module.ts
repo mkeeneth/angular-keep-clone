@@ -26,6 +26,7 @@ import { ViewNotesComponent } from "./notes-container/view-notes/view-notes.comp
 // state
 import { StoreModule } from "@ngrx/store";
 import { reducer } from "./reducers/note.reducer";
+import { RemoveNoteComponent } from './notes-container/remove-note/remove-note.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { reducer } from "./reducers/note.reducer";
     HeaderComponent,
     NotesContainerComponent,
     AddNoteComponent,
-    ViewNotesComponent
+    ViewNotesComponent,
+    RemoveNoteComponent
   ],
   imports: [
     BrowserModule,

@@ -33,7 +33,7 @@ export const TestNoteData: Note[] = [
   },
   {
     id: 7,
-    title: "Note number 2",
+    title: "A meaty note right here",
     body:
       "Burgdoggen buffalo fatback, porchetta kevin flank Short loin ground round leberkas swine doner turducken tongue.  picanha pork belly sausage pork corned beef capicola ham hock. "
   },
@@ -44,8 +44,8 @@ export const TestNoteData: Note[] = [
   },
   {
     id: 9,
-    title: "Note number 2",
+    title: "Note number 222222222222222",
     body: "My note body here 2 My note body here 2 My note body here 2 My note body here 2"
   },
-  { id: 10, title: "Note number 2", body: "My note body here 2" }
+  { id: 10, title: "Note number 246 888888", body: "My note body here 2" }
 ];

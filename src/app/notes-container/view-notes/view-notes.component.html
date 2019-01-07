@@ -6,10 +6,11 @@
   *ngIf="notes$"
 >
   <!-- prettier-ignore -->
-  <div fxFlex *ngFor="let note of notes$ | async" class="card-item">
+  <div fxFlex *ngFor="let note of notes$ | async" class="card-item" [@slideInOut]>
     <mat-card>
-      <mat-card-header>
+      <mat-card-header style="padding-right: 6px;">
         <mat-card-title>{{ note.title }}</mat-card-title>
+        <app-remove-note [id]="note.id"></app-remove-note>
       </mat-card-header>
       <mat-card-content>{{ note.body }}</mat-card-content>
     </mat-card>
