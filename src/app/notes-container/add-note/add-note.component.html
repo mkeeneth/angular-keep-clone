@@ -2,7 +2,7 @@
   <button *ngIf="!show" (click)="show = !show" mat-raised-button color="primary">
     <fa name="plus"></fa> Add Note
   </button>
-  <mat-card class="mat-card mat-elevation-z4" *ngIf="show">
+  <mat-card class="mat-card mat-elevation-z20" *ngIf="show">
     <mat-card-content>
       <div class="add-note-close">
         <button mat-raised-button color="warn" (click)="show = !show">

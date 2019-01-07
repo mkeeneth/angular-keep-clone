@@ -1,6 +1,8 @@
 .add-note-container {
   margin: 10px;
   width: 450px;
+  position: absolute;
+  z-index: 200;
 }
 
 .add-note {
