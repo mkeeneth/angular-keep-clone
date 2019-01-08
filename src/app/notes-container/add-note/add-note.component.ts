@@ -33,6 +33,6 @@ export class AddNoteComponent implements OnInit {
     let randomId: number = Math.trunc(Math.random() * 10000000000);
     this.store.dispatch(new NoteActions.AddNote({ id: randomId, title, body }));
     this.show = false;
-    // TODO:: reset form
+    this.noteForm.reset()
   }
 }
