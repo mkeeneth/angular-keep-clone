@@ -1,9 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Renderer2 } from "@angular/core";
 import { Note } from "../../models/note.model";
 
 import { Store, select } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { AppState } from "./../../app.state";
+
+import * as marked from "marked";
 
 import { trigger, state, style, animate, transition } from "@angular/animations";
 
@@ -24,10 +26,14 @@ import { trigger, state, style, animate, transition } from "@angular/animations"
 export class ViewNotesComponent implements OnInit {
   notes$: Observable<Note[]>;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private renderer: Renderer2, private store: Store<AppState>) {
     this.notes$ = store.pipe(select("notes"));
-    console.log(this.notes$);
+    marked.setOptions({ sanitize: true });
   }
 
   ngOnInit() {}
+
+  render(text) {
+    return marked(text);
+  }
 }

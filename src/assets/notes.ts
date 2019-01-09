@@ -1,17 +1,22 @@
 import { Note } from "../app/models/note.model";
 
 export const TestNoteData: Note[] = [
-  { id: 1, title: "Note number 1", body: "My note body here" },
+  {
+    id: 1,
+    title: "Note number 1",
+    body: "My note body here [I'm an inline-style link](https://www.google.com)"
+  },
   {
     id: 2,
     title: "Note number 2",
     body:
-      "Bacon ipsum dolor amet turkey cow pork loin fatback jowl pancetta cupim pastrami ham chuck tail alcatra meatball chicken. "
+      "* Bacon ipsum dolor amet turkey \n* cow pork loin fatback jowl pancetta cupim pastrami ham \n* chuck tail alcatra meatball chicken. "
   },
   {
     id: 3,
     title: "Note number 3",
-    body: "Swine pork chop andouille buffalo kielbasa ribeye pork biltong drumstick turducken. "
+    body:
+      "1. Swine pork chop andouille \n2. buffalo kielbasa \n3.ribeye pork biltong \n4.drumstick \n5.**turducken** "
   },
   {
     id: 4,

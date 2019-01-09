@@ -12,7 +12,7 @@
         <mat-card-title>{{ note.title }}</mat-card-title>
         <app-remove-note [id]="note.id"></app-remove-note>
       </mat-card-header>
-      <mat-card-content>{{ note.body }}</mat-card-content>
+      <mat-card-content [innerHTML]="render(note.body)"></mat-card-content>
     </mat-card>
   </div>
 </div>
