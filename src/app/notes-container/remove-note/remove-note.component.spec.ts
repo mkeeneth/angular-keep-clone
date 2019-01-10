@@ -1,16 +1,21 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from "@angular/core";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { RemoveNoteComponent } from './remove-note.component';
+import { RemoveNoteComponent } from "./remove-note.component";
 
-describe('RemoveNoteComponent', () => {
+import { StoreModule } from "@ngrx/store";
+import { reducer } from "../../reducers/note.reducer";
+
+describe("RemoveNoteComponent", () => {
   let component: RemoveNoteComponent;
   let fixture: ComponentFixture<RemoveNoteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RemoveNoteComponent ]
-    })
-    .compileComponents();
+      declarations: [RemoveNoteComponent],
+      imports: [StoreModule.forRoot({ notes: reducer })],
+      schemas: [NO_ERRORS_SCHEMA]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +24,7 @@ describe('RemoveNoteComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

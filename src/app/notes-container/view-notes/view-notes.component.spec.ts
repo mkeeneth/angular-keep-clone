@@ -2,7 +2,10 @@ import { NO_ERRORS_SCHEMA } from "@angular/core";
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { ViewNotesComponent } from "./view-notes.component";
-import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
+import { StoreModule } from "@ngrx/store";
+import { reducer } from "../../reducers/note.reducer";
 
 describe("ViewNotesComponent", () => {
   let component: ViewNotesComponent;
@@ -11,7 +14,7 @@ describe("ViewNotesComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ViewNotesComponent],
-      imports: [HttpClientTestingModule],
+      imports: [StoreModule.forRoot({ notes: reducer }), BrowserAnimationsModule],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
