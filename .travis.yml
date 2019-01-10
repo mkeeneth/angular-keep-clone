@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+  - "10"
+dist: trusty
+sudo: required
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
+cache:
+  directories:
+    - node_modules
+
+branches:
+  only:
+    - master
+before_script:
+  - npm install -g @angular/cli
+install:
+  - npm install
+script:
+  - ng test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+  - xvfb-run npm run e2e
+  - ng build --prod
