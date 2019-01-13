@@ -3,8 +3,11 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { AddNoteComponent } from "./add-note/add-note.component";
 import { ViewNotesComponent } from "./view-notes/view-notes.component";
 import { NotesContainerComponent } from "./notes-container.component";
+import { MatMenuModule } from "@angular/material/menu";
 import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatDialog, MatDialogConfig } from "@angular/material";
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 
 import { StoreModule } from "@ngrx/store";
 import { reducer } from "../reducers/note.reducer";
@@ -18,6 +21,7 @@ describe("NotesContainerComponent", () => {
       declarations: [NotesContainerComponent, AddNoteComponent, ViewNotesComponent],
       imports: [
         ReactiveFormsModule,
+        MatMenuModule,
         StoreModule.forRoot({ notes: reducer }),
         BrowserAnimationsModule
       ],
