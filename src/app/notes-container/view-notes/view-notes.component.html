@@ -10,7 +10,13 @@
     <mat-card>
       <mat-card-header style="padding-right: 6px;">
         <mat-card-title>{{ note.title }}</mat-card-title>
-        <app-remove-note [id]="note.id"></app-remove-note>
+        <button class="note-options" mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <app-edit-note [id]="note.id"></app-edit-note>
+          <app-remove-note [id]="note.id"></app-remove-note>
+        </mat-menu>
       </mat-card-header>
       <mat-card-content [innerHTML]="render(note.body)"></mat-card-content>
     </mat-card>

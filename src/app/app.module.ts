@@ -16,6 +16,10 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
+import { MatMenuModule } from "@angular/material/menu";
+import { MatIconModule } from "@angular/material/icon";
+import { MatDialogModule } from "@angular/material/dialog";
+import { RemoveNoteDialog } from "./notes-container/remove-note/remove-note-dialog.component";
 
 import { FooterComponent } from "./footer/footer.component";
 import { HeaderComponent } from "./header/header.component";
@@ -26,7 +30,8 @@ import { ViewNotesComponent } from "./notes-container/view-notes/view-notes.comp
 // state
 import { StoreModule } from "@ngrx/store";
 import { reducer } from "./reducers/note.reducer";
-import { RemoveNoteComponent } from './notes-container/remove-note/remove-note.component';
+import { RemoveNoteComponent } from "./notes-container/remove-note/remove-note.component";
+import { EditNoteComponent } from "./notes-container/edit-note/edit-note.component";
 
 @NgModule({
   declarations: [
@@ -36,7 +41,9 @@ import { RemoveNoteComponent } from './notes-container/remove-note/remove-note.c
     NotesContainerComponent,
     AddNoteComponent,
     ViewNotesComponent,
-    RemoveNoteComponent
+    RemoveNoteComponent,
+    RemoveNoteDialog,
+    EditNoteComponent
   ],
   imports: [
     BrowserModule,
@@ -47,10 +54,14 @@ import { RemoveNoteComponent } from './notes-container/remove-note/remove-note.c
     MatToolbarModule,
     MatCardModule,
     MatButtonModule,
+    MatMenuModule,
+    MatIconModule,
+    MatDialogModule,
     FlexLayoutModule,
     AngularFontAwesomeModule,
     StoreModule.forRoot({ notes: reducer })
   ],
+  entryComponents: [RemoveNoteDialog],
   providers: [],
   bootstrap: [AppComponent]
 })

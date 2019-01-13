@@ -23,16 +23,14 @@
 }
 
 .mat-card:hover {
-    box-shadow: 0 0 0 1px #444343;
-    /*outline: 1px solid #444343;*/
-    border-radius: 3px;
-    transition: border-width 0.33s linear;
+  box-shadow: 0 0 0 1px #444343;
+  /*outline: 1px solid #444343;*/
+  border-radius: 3px;
+  transition: border-width 0.33s linear;
 }
 
-app-remove-note {
-  display: none !important;
-}
-
-.mat-card:hover > mat-card-header > app-remove-note {
-  display: block !important;
+.note-options {
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }

@@ -1,3 +1,4 @@
-<div class="note-remove">
-  <button mat-mini-fab color="warn" (click)="removeNote(id)"><fa name="trash"></fa></button>
-</div>
+<button mat-menu-item (click)="openDeleteDialog(id)">
+  <mat-icon>delete</mat-icon>
+  <span>Delete Note</span>
+</button>
