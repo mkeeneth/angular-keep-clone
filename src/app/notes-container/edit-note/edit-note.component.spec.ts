@@ -1,16 +1,20 @@
-import { NO_ERRORS_SCHEMA } from "@angular/core";
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditNoteComponent } from "./edit-note.component";
+import { EditNoteComponent } from './edit-note.component';
 
-describe("EditNoteComponent", () => {
+import { StoreModule } from '@ngrx/store';
+import { reducer } from '../../reducers/note.reducer';
+
+describe('EditNoteComponent', () => {
   let component: EditNoteComponent;
   let fixture: ComponentFixture<EditNoteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [EditNoteComponent],
-      schemas: [NO_ERRORS_SCHEMA]
+      imports: [StoreModule.forRoot({ notes: reducer })],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   }));
 
@@ -20,7 +24,7 @@ describe("EditNoteComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

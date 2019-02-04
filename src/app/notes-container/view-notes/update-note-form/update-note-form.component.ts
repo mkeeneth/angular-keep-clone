@@ -15,18 +15,28 @@ import * as NoteActions from './../../../actions/note.actions';
 })
 export class UpdateNoteFormComponent implements OnInit {
   @Input() note: Note;
+  shouldSave: string;
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit() {}
 
   onSubmit(f: NgForm) {
-    console.warn(f.value);
-    this.updateNote(f.value['id'], f.value['title'], f.value['body']);
+    if (this.shouldSave === 'true') {
+      // this.updateNote(f.value['id'], f.value['title'], f.value['body']);
+      this.store.dispatch(
+        new NoteActions.UpdateNote({
+          id: f.value['id'],
+          title: f.value['title'],
+          body: f.value['body'],
+        }),
+      );
+    } else {
+      this.store.dispatch(new NoteActions.CancelEditNote(f.value['id']));
+    }
   }
 
-  updateNote(id, title, body) {
-    console.warn(id, title, body);
+  /*updateNote(id, title, body) {
     this.store.dispatch(new NoteActions.UpdateNote({ id, title, body }));
-  }
+  }*/
 }

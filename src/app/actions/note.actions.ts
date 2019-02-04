@@ -4,6 +4,7 @@ import { Note } from './../models/note.model';
 
 export const ADD_NOTE = '[NOTE] Add';
 export const EDIT_NOTE = '[NOTE] Edit';
+export const CANCEL_EDIT_NOTE = '[NOTE] Cancel Edit';
 export const UPDATE_NOTE = '[NOTE] Update';
 export const REMOVE_NOTE = '[NOTE] Remove';
 
@@ -18,6 +19,12 @@ export class EditNote implements Action {
 
   constructor(public payload: number) {}
 }
+
+export class CancelEditNote implements Action {
+  readonly type = CANCEL_EDIT_NOTE;
+
+  constructor(public payload: number) {}
+}
 export class UpdateNote implements Action {
   readonly type = UPDATE_NOTE;
 
@@ -29,4 +36,4 @@ export class RemoveNote implements Action {
   constructor(public payload: number) {}
 }
 
-export type Action = AddNote | EditNote | UpdateNote | RemoveNote;
+export type Action = AddNote | EditNote | CancelEditNote | UpdateNote | RemoveNote;

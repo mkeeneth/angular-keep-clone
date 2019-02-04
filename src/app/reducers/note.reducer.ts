@@ -16,15 +16,25 @@ export function reducer(state: Note[] = TestNoteData, action: NoteActions.Action
             }
           : x,
       );
-    case NoteActions.UPDATE_NOTE:
+    case NoteActions.CANCEL_EDIT_NOTE:
       return state.map(x =>
-        x.id === action.payload.id
+        x.id === action.payload
           ? {
               ...x,
               isEditing: false,
             }
           : x,
       );
+    case NoteActions.UPDATE_NOTE:
+      return state.map(x =>
+        x.id === action.payload.id
+          ? {
+              ...action.payload,
+              isEditing: false,
+            }
+          : x,
+      );
+
     case NoteActions.REMOVE_NOTE:
       return state.filter(x => x.id !== action.payload);
     default:
