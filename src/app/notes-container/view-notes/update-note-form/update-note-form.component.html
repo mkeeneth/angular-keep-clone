@@ -1,0 +1,27 @@
+<!-- for note edit -->
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+  <mat-card-title>
+    <input name="id" [(ngModel)]="note.id" required type="hidden" />
+    <input
+      name="title"
+      required
+      class="note-update-title"
+      style="width: 230px;"
+      [(ngModel)]="note.title"
+    />
+  </mat-card-title>
+  <mat-card-content>
+    <textarea
+      name="body"
+      type="text"
+      required
+      class="note-update-body"
+      style="margin: 0px; width: 280px; height: 130px;"
+      ref-textarea
+      [(ngModel)]="note.body"
+    >
+    </textarea>
+    <button type="submit" mat-raised-button color="primary"><fa name="save"></fa> Save</button>
+    <button type="submit" mat-raised-button color="secondary"><fa name="times"></fa> Cancel</button>
+  </mat-card-content>
+</form>

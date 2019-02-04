@@ -5,10 +5,15 @@
   class="card-deck-container mat-elevation-z4"
   *ngIf="notes$"
 >
-  <!-- prettier-ignore -->
-  <div fxFlex *ngFor="let note of notes$ | async" class="card-item" [@slideInOut]>
+  <div
+    fxFlex
+    *ngFor="let note of (notes$ | async); trackBy: trackByItem"
+    class="card-item"
+    [@slideInOut]="note.isEditing ? true : false"
+  >
     <mat-card>
-      <mat-card-header style="padding-right: 6px;">
+      <!-- normal view -->
+      <mat-card-header *ngIf="!note.isEditing" style="padding-right: 6px;">
         <mat-card-title>{{ note.title }}</mat-card-title>
         <button class="note-options" mat-icon-button [matMenuTriggerFor]="menu">
           <mat-icon>more_vert</mat-icon>
@@ -18,7 +23,10 @@
           <app-remove-note [id]="note.id"></app-remove-note>
         </mat-menu>
       </mat-card-header>
-      <mat-card-content [innerHTML]="render(note.body)"></mat-card-content>
+      <mat-card-content *ngIf="!note.isEditing" [innerHTML]="render(note.body)"></mat-card-content>
+
+      <!-- for note edit -->
+      <app-update-note-form *ngIf="note.isEditing" [note]="note"></app-update-note-form>
     </mat-card>
   </div>
 </div>

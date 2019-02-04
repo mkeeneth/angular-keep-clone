@@ -1,23 +1,23 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder } from "@angular/forms";
-import { Validators } from "@angular/forms";
-import { FormArray } from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { Validators } from '@angular/forms';
+import { FormArray } from '@angular/forms';
 
-import { Store, select } from "@ngrx/store";
-import { Observable } from "rxjs";
-import { AppState } from "./../../app.state";
-import * as NoteActions from "./../../actions/note.actions";
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { AppState } from './../../app.state';
+import * as NoteActions from './../../actions/note.actions';
 @Component({
-  selector: "app-add-note",
-  templateUrl: "./add-note.component.html",
-  styleUrls: ["./add-note.component.css"]
+  selector: 'app-add-note',
+  templateUrl: './add-note.component.html',
+  styleUrls: ['./add-note.component.css'],
 })
 export class AddNoteComponent implements OnInit {
   show: boolean = false;
 
   noteForm = this.fb.group({
-    title: ["", Validators.required],
-    body: ["", Validators.required]
+    title: ['', Validators.required],
+    body: ['', Validators.required],
   });
 
   constructor(private store: Store<AppState>, private fb: FormBuilder) {}
@@ -26,7 +26,7 @@ export class AddNoteComponent implements OnInit {
 
   onSubmit() {
     console.warn(this.noteForm.value);
-    this.addNote(this.noteForm.value["title"], this.noteForm.value["body"]);
+    this.addNote(this.noteForm.value['title'], this.noteForm.value['body']);
   }
 
   addNote(title, body) {
